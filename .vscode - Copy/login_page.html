@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+
+<h2>Login Page</h2>
+
+<form onsubmit="goToHome(event)">
+    <input type="email" placeholder="Username" required><br><br>
+    <input type="password" id="pwd" placeholder="Password" required>
+    <input type="checkbox" onclick="pwd. type= this.checked ? 'text' : 'password' "><br><br>
+    <button type="submit">Login</button>
+</form>
+
+<!-- <script>
+function goToHome(event) {
+    event.preventDefault(); // stop form from refreshing
+    window.location.href = "home.html"; // redirect
+}
+</script> -->
+<script>
+function goToHome(event) {
+    event.preventDefault();
+
+    let user = document.querySelector("input[type='email']").value;
+    let pass = document.querySelector("input[type='password']").value;
+
+    if(user === "admin@gmail.com" && pass === "1234") {
+        window.location.href = "home.html";
+    } else {
+        alert("Invalid login!");
+    }
+}
+</script>
+
+</body>
+</html>

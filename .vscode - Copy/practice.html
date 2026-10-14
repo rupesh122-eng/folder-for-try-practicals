@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shoe UI</title>
+  
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1e1e1e, #000);
+}
+
+/* CARD */
+.card {
+  position: relative;
+  width: 320px;
+  height: 450px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  overflow: hidden;
+  text-align: center;
+  transition: 0.5s;
+}
+
+/* GLOW CIRCLE */
+.circle {
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: #ff3c78;
+  border-radius: 50%;
+  filter: blur(100px);
+}
+
+/* SHOE IMAGE */
+.shoe {
+  position: absolute;
+  width: 260px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-20deg);
+  transition: 0.5s;
+}
+
+/* TEXT */
+.content {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  color: white;
+}
+
+.content h2 {
+  font-size: 28px;
+}
+
+.content p {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+/* BUTTON */
+button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 20px;
+  background: #ff3c78;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff1f5a;
+  box-shadow: 0 0 15px #ff3c78;
+}
+
+/* HOVER EFFECT */
+.card:hover .shoe {
+  transform: translate(-50%, -60%) rotate(0deg) scale(1.1);
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+  </style>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <h2 class="logo">ShoeX</h2>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-text">
+        <h1>New Collection</h1>
+        <p>Stylish shoes for every step</p>
+        <button>Shop Now</button>
+    </div>
+    <img src="images/shoe1.png" alt="shoe">
+</section>
+
+<!-- PRODUCTS -->
+<section class="products">
+
+    <div class="card">
+        <img src="images/shoe1.png">
+        <h3>Nike Air</h3>
+        <p>$120</p>
+    </div>
+
+    <div class="card">
+        <img src="https://th.bing.com/th/id/OIP.IoVvBF8F8ea9cNIVrM3TUAHaHa?w=183&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3">
+        <h3>Adidas Pro</h3>
+        <p>$150</p>
+    </div>
+
+    <div class="card">
+        <img src="images/shoe1.png">
+        <h3>Puma Speed</h3>
+        <p>$100</p>
+    </div>
+
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+<script>
+    const card = document.querySelector(".card");
+
+card.addEventListener("mousemove", (e) => {
+  let x = e.offsetX;
+  let y = e.offsetY;
+
+  let rotateY = (x / 320 - 0.5) * 20;
+  let rotateX = -(y / 450 - 0.5) * 20;
+
+  card.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+});
+
+card.addEventListener("mouseleave", () => {
+  card.style.transform = "rotateY(0) rotateX(0)";
+});
+</script>
+</body>
+</html>
+</body>
+</html>

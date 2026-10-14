@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ body {
+            margin: 0;
+            background: #eaeaea;
+            font-family: Arial, sans-serif;
+        }
+
+        /* NAV CONTAINER */
+        .nav {
+            display: flex;
+            
+            margin-top: 20px;
+            /* space from top */
+            background: #fff;
+            position: relative;
+            padding: 10px 20px;
+            border-radius: 40px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 10px 40px rgba(159, 162, 177, 0.5);
+        }
+
+        /* LINKS */
+        .nav a {
+            position: relative;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        /* HOVER EFFECT */
+        .nav a:hover {
+            color: #000;
+        }
+
+        /* ACTIVE SLIDER */
+        .nav .slider {
+            position: absolute;
+            bottom: 0;
+            height: 4px;
+            width: 80px;
+            background: #6c5ce7;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        /* Positions for slider */
+        .nav a:nth-child(1):hover~.slider {
+            left: 20px;
+        }
+
+        .nav a:nth-child(2):hover~.slider {
+            left: 110px;
+        }
+
+        .nav a:nth-child(3):hover~.slider {
+            left: 210px;
+        }
+
+        .nav a:nth-child(4):hover~.slider {
+            left: 320px;
+        }
+
+        .nav a:nth-child(5):hover~.slider {
+            left: 420px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="nav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="./login_page.html" onclick="logout()">Logout</a>
+
+        <div class="slider"></div>
+    </div>
+
+    <script>
+        function logout() {
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <div class="content">
+    <h1>Services</h1>
+    <p>We provide Web Design, Development, and more.</p>
+</div>
+    </div>
+</body>
+</html>

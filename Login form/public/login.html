@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Login</title>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+    overscroll-behavior: none;
+    display: block;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url('https://images.unsplash.com/photo-1506765515384-028b60a970df');
+    background-size: cover;
+    background-position: center;
+}
+/* Floating blurred card */
+.login-card{
+    width:380px;
+    padding:40px;
+    border-radius:20px;
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.2);
+    box-shadow:0 20px 40px rgba(0,0,0,0.3);
+    color:#fff;
+    animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.login-card h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+/* Inputs */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+    color: #fff;
+}
+
+/* Hide placeholder */
+.input-group input::placeholder {
+    color: transparent;
+}
+
+/* Label default */
+.input-group label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 14px;
+    transition: 0.25s ease;
+    pointer-events: none;
+}
+
+/* 🔥 Floating effect INSIDE border */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: 0;
+    transform: translateY(-50%);
+    font-size: 12px;
+    background: rgba(0,0,0,0.7); /* SAME as card bg */
+    padding: 0 6px;
+    border-radius: 4px;
+}
+
+/* Button */
+.login-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#fff;
+    color:#764ba2;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    transform:scale(1.05);
+    background:#f1f1f1;
+}
+
+/* Contact */
+.contact-box{
+    position:absolute;
+    top:20px;
+    display:flex;
+    gap:20px;
+}
+
+.contact-box a{
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.contact-box a:hover{
+    color:#ffd700;
+}
+
+/* Divider */
+.separator{
+    margin:20px 0;
+    text-align:center;
+    position:relative;
+}
+
+.separator::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:1px;
+    background:#aaa;
+    top:50%;
+    left:0;
+}
+
+.separator span{
+    background:#764ba2;
+    padding:0 10px;
+    position:relative;
+}
+
+/* Google Button */
+.g_id_signin{
+    margin-top:10px;
+}
+
+/* Footer */
+.footer-links{
+    text-align:center;
+    margin-top:15px;
+}
+
+.footer-links a{
+    color:#ffd700;
+    text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="contact-box">
+    <a href="#"><i class="fa-solid fa-envelope"></i> Mail</a>
+    <a href="#"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    <a href="#"><i class="fa-solid fa-phone"></i> Phone</a>
+</div>
+
+<div class="login-card">
+    <h2>Welcome Back 👋</h2>
+
+    <form onsubmit="goToHome(event)">
+        <div class="input-group">
+            <input type="email" id="email" placeholder=" " required>
+            <label>Email</label>
+        </div>
+
+        <div class="input-group">
+            <input type="password" id="pwd" placeholder=" " required>
+            <label>Password</label>
+        </div>
+
+        <button class="login-btn">Login</button>
+    </form>
+
+    <div class="footer-links">
+        <p>Don't have an account? <a href="#">Sign Up</a></p>
+    </div>
+
+    <div class="separator"><span>OR</span></div>
+
+    <div id="g_id_onload"
+     data-client_id="PASTE_YOUR_CLIENT_ID_HERE"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-callback="handleCredentialResponse"
+     data-auto_prompt="false">
+</div>
+
+<div class="g_id_signin"
+     data-type="standard"
+     data-size="large"
+     data-theme="outline"
+     data-text="continue_with"
+     data-shape="pill"
+     data-logo_alignment="left">
+</div>
+</div>
+
+<script>
+function handleCredentialResponse(response){
+    alert("Google Login Successful ✅");
+}
+
+function goToHome(e){
+    e.preventDefault();
+    let user=document.querySelector("input[type='email']").value;
+    let pass=document.querySelector("input[type='password']").value;
+
+    if(user==="admin@gmail.com" && pass==="1234"){
+        window.location.href="home.html";
+    }else{
+        alert("Invalid Login ❌");
+    }
+}
+</script>
+
+</body>
+</html>

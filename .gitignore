@@ -1,0 +1,14 @@
+# Compiled Java and Python files
+*.class
+__pycache__/
+*.py[cod]
+
+# Node.js dependencies and local configuration
+node_modules/
+.env
+.env.*
+!.env.example
+
+# Operating-system files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    width: 100%;
+    max-width: 600px;
+
+    padding: 30px;
+    border-radius: 15px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #667eea;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+
+    padding: 10px 15px;
+
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#addBtn {
+    background: #667eea;
+    color: white;
+    white-space: nowrap;
+}
+
+#addBtn:hover {
+    background: #5568d9;
+}
+
+.search-section {
+    margin-bottom: 15px;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+.filter {
+    background: #eee;
+    color: #333;
+}
+
+.filter.active {
+    background: #667eea;
+    color: white;
+}
+
+#taskList {
+    list-style: none;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px;
+
+    border-bottom: 1px solid #eee;
+}
+
+.task-text {
+    flex: 1;
+    font-size: 16px;
+}
+
+.task.completed .task-text {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.edit-btn {
+    background: #ffc107;
+    color: #222;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 20px;
+
+    font-size: 14px;
+}
+
+#clearCompleted {
+    background: #333;
+    color: white;
+}
+
+.empty {
+    text-align: center;
+    padding: 20px;
+    color: #888;
+}
+
+@media (max-width: 500px) {
+
+    .container {
+        padding: 20px;
+    }
+
+    .input-section {
+        flex-direction: column;
+    }
+
+    #addBtn {
+        width: 100%;
+    }
+
+    .bottom-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Box</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .search-box {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            outline: none;
+        }
+
+        .search-btn {
+            padding: 10px 20px;
+            border: none;
+            background: #007BFF;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .search-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Search Box</h2>
+
+    <!-- Search Input -->
+    <input type="search" id="searchInput" class="search-box" placeholder="Search here...">
+
+    <!-- Button -->
+    <button class="search-btn" onclick="searchFunction()">Search</button>
+
+    <script>
+        function searchFunction() {
+            let value = document.getElementById("searchInput").value;
+            alert("You searched: " + value);
+        }
+    </script>
+
+</body>
+</html>
